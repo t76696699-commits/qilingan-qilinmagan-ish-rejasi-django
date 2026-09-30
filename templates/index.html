@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sirtqi va Ichki vazifalar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+</head>
+<body>
+<header>
+    <div class="forms-wrapper">
+        <form id="add-main-form">
+            <div class="row">
+                <h1>Sirtqi:</h1>
+                <input type="text" name="main_title" placeholder="Sirtqi vazifa nomi..." required autocomplete="off">
+                <button type="submit">Qo'shish</button>
+            </div>
+        </form>
+
+        <form id="add-sub-form">
+            <div class="row">
+                <h1>Ichki vazifa:</h1>
+                <select name="main_task_id" id="main_task_select" required>
+                    <option value="">Sirtqini tanlang</option>
+                    {% for task in main_tasks %}
+                        <option value="{{ task.id }}">{{ task.title }}</option>
+                    {% endfor %}
+                </select>
+                <input type="text" name="sub_title" placeholder="Fan yoki tartib..." required autocomplete="off">
+                <button type="submit">Qo'shish</button>
+            </div>
+        </form>
+    </div>
+</header>
+
+<main>
+    <section>
+        <div class="column">
+            <h1>Sirtqi vazifalar</h1>
+            <div class="sirtqi_list">
+                {% for item in main_tasks %}
+                    <div class="main-item {% if item.is_completed %}main-completed{% endif %}" data-id="{{ item.id }}">
+                        <div class="todo-left">
+                            <div class="custom-checkbox main-checkbox {% if item.is_completed %}checked{% endif %}"></div>
+                            <h2>{{ item.title }}</h2>
+                            {% if item.is_completed %}
+                                <span class="completed-badge">✅ (Barchasi bajarildi)</span>
+                            {% endif %}
+                        </div>
+                        <div class="todo-right">
+                            <i class="fa-solid fa-trash delete-btn delete-main" title="O'chirish"></i>
+                            <i class="fa-solid fa-chevron-right" style="color: #00ff66;"></i>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="column">
+            <h1 id="subtask-header-title">Ichidagi narsalar</h1>
+            <div class="ichidan_ochiladigan">
+                <p class="placeholder-text">Sirtqi vazifalardan birini bosing...</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="{% static 'js.js' %}"></script>
+</body>
+</html>

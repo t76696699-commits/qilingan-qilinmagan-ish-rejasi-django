@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: url("https://wallpaperaccess.com/full/1759696.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.forms-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.forms-wrapper form .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+body header h1 {
+    font-size: 35px;
+    color: white;
+    text-shadow: #777676 3px 3px 3px;
+}
+
+body header input {
+    width: 250px;
+    height: 40px;
+    background-color: black;
+    border: black 1px solid;
+    font-size: 13px;
+    color: white;
+    padding-left: 10px;
+    border-radius: 15px;
+    box-shadow: #1e1e1e 3px 3px 3px 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+body header input::placeholder {
+    color: white;
+}
+
+select {
+    height: 40px;
+    background-color: black;
+    border: black 1px solid;
+    color: white;
+    border-radius: 15px;
+    padding: 0 10px;
+}
+
+body header button {
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    box-shadow: #1e1e1e 3px 3px 3px 0px;
+    transition: 0.3s all;
+    font-family: 'Poppins', sans-serif;
+}
+
+body header button:active {
+    background-color: black;
+    color: white;
+}
+
+body section {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+body section .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+}
+
+body section .column h1 {
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.sirtqi_list, .ichidan_ochiladigan {
+    width: 320px;
+    height: 450px;
+    border: 4px darkblue solid;
+    border-radius: 30px;
+    backdrop-filter: blur(50px);
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    overflow-y: auto;
+    box-shadow: #020257 3px 3px 3px 0px;
+}
+
+.main-item, .sub-item {
+    background-color: black;
+    border: darkblue 1px solid;
+    width: 100%;
+    min-height: 45px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.main-item h2, .sub-item h2 {
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.main-item:hover {
+    transform: scale(1.02);
+}
+
+.active-main {
+    background-color: #111133 !important;
+}
+
+.main-completed {
+    border-color: #00ff66 !important;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+}
+
+.completed-badge {
+    color: #00ff66;
+    font-size: 11px;
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+.todo-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.todo-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 5px;
+    border: 2px solid #ff3333;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.custom-checkbox.checked {
+    background-color: #00ff66;
+    border-color: #00ff66;
+}
+
+.custom-checkbox.checked::after {
+    content: '✓';
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.delete-btn {
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s, color 0.2s;
+    padding: 5px;
+}
+
+.delete-btn:hover {
+    color: #ff0000;
+    transform: scale(1.2);
+}
+
+.placeholder-text {
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+}
