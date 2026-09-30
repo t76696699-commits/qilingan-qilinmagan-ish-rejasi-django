@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +47,7 @@ TEMPLATES = [
     },
 ]
 
+# Восстановлено для деплоя с помощью Gunicorn на Render:
 WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
 DATABASES = {
@@ -62,10 +64,12 @@ TIME_ZONE = 'Asia/Tashkent'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+# Обязательно для команды collectstatic на Render:
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-WSGI_APPLICATION = None
